@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jian English Exploration Studio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Jian English Exploration Studio</h1>
+    <p>로그인 후 최신 AI 연결(또는 내장 AI fallback)로 과제를 즉시 생성합니다.</p>
+  </header>
+
+  <main class="container">
+    <section class="card" id="login-card">
+      <h2>학습 시작 로그인</h2>
+      <p class="hint">API 키 입력 없이 이름만 입력하면 바로 시작됩니다.</p>
+      <div class="row">
+        <input id="name-input" type="text" placeholder="이름 입력 (예: 지안이)" />
+        <button id="login-btn" class="primary">로그인</button>
+      </div>
+      <p id="login-status" class="note"></p>
+    </section>
+
+    <section class="card hidden" id="start-card">
+      <h2>오늘 어떤 주제로 시작할까요?</h2>
+      <div class="grid topics" id="topic-buttons"></div>
+
+      <h3>학습 모드</h3>
+      <div class="row" id="mode-buttons"></div>
+
+      <h3>Live Conversation</h3>
+      <div class="row wrap" id="live-buttons"></div>
+
+      <button id="start-learning" class="primary">AI 과제 생성</button>
+      <p class="hint">문제은행이 아닌, 로그인 사용자 기록을 반영한 개인화 생성 방식입니다.</p>
+    </section>
+
+    <section class="card hidden" id="lesson-card">
+      <div class="row between">
+        <h2 id="lesson-title"></h2>
+        <button id="back-home" class="ghost">다시 선택</button>
+      </div>
+      <div id="model-badge" class="badge"></div>
+      <div id="lesson-content"></div>
+    </section>
+
+    <section class="card hidden" id="worksheet-card">
+      <div class="row between">
+        <h2>워크시트 미리보기 (A4)</h2>
+        <div class="row">
+          <button id="save-pdf" class="primary small">PDF로 저장</button>
+          <button id="print-view" class="ghost small">프린트용 보기</button>
+        </div>
+      </div>
+      <div class="worksheet-preview" id="worksheet-preview"></div>
+      <p class="note">이 워크시트는 A4 세로 PDF로 저장 후 출력하여 바로 사용할 수 있도록 설계함.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
