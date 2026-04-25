@@ -1,0 +1,104 @@
+:root {
+  --bg: #f6f7f9;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --primary: #1f4a7c;
+  --line: #e5e7eb;
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Pretendard", "Noto Sans KR", system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.topbar {
+  padding: 24px;
+  background: linear-gradient(180deg, #fff, #f8fafc);
+  border-bottom: 1px solid var(--line);
+}
+.topbar h1 { margin: 0 0 6px; font-size: 1.55rem; }
+.topbar p { margin: 0; color: var(--muted); }
+
+.container {
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 0 16px 40px;
+  display: grid;
+  gap: 16px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  padding: 18px;
+}
+.grid.topics { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-bottom: 14px; }
+.row { display: flex; gap: 10px; align-items: center; }
+.row.wrap { flex-wrap: wrap; }
+.row.between { justify-content: space-between; }
+
+input {
+  flex: 1;
+  min-width: 240px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 1rem;
+}
+
+.topic-btn, .pill, button {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: white;
+  cursor: pointer;
+  transition: .18s;
+}
+.topic-btn { border-radius: 14px; text-align: left; }
+.topic-btn b { display: block; margin-bottom: 4px; }
+.selected { border-color: var(--primary); background: #eaf2ff; }
+button.primary {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+button.ghost { background: #fff; }
+button.small { padding: 8px 12px; }
+.hidden { display: none; }
+
+.hint, .note { color: var(--muted); font-size: .92rem; }
+.badge {
+  display: inline-block;
+  margin-bottom: 8px;
+  background: #eef6ff;
+  color: #1e3a8a;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: .85rem;
+}
+.block { border: 1px solid var(--line); border-radius: 12px; padding: 12px; margin: 10px 0; }
+.block h3 { margin: 0 0 8px; font-size: 1rem; }
+.list-tight { margin: 0; padding-left: 18px; }
+.chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.chip { background: #eef6f6; color: #245755; border-radius: 999px; padding: 6px 10px; font-size: .9rem; }
+.worksheet-preview {
+  background: #fff;
+  border: 1px dashed #cdd5df;
+  margin-top: 10px;
+  padding: 16px;
+}
+
+@media print {
+  body { background: #fff; }
+  .topbar, #login-card, #start-card, #lesson-card, #save-pdf, #print-view, #back-home { display: none !important; }
+  #worksheet-card { display: block !important; border: none; box-shadow: none; }
+  .worksheet-preview { border: none; }
+  @page { size: A4 portrait; margin: 16mm; }
+}
